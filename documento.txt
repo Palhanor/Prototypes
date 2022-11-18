@@ -1,0 +1,15 @@
+FEITO
+.erease(valor) - Apagar a primeira ocorrencia de um valor em um array
+.ereaseAll(valor) - Apaga todas as ocorrencias de um valor em um array
+.special() - Exclui todos os elementos repetidos de um determinado array (inclusive objetos com um mesmo valor em uma chave informada)
+
+AJEITAR
+.remove(indice) | .delete(indice) - Apaga o item na posicao passada pelo array
+.insert(indice, valor) | .create(indice, valor) - Insere um determinado valor em uma posicao especificada do array
+
+FAZENDO
+.type() - Uma função que retorna o tipo do dado passado (string, object, function, int, float, boolean...)
+.order() - Ordenar array de número ou strings do maior para o menor ou do menor para o maior
+
+FAZER
+.edit(indice, valor) | .update(indice, valor) - Editar o valor de uma determinada posição do array (tambem poderia receber uma funcao de callback retornando o mesmo valor ja modificado)

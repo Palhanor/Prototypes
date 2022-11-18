@@ -4,8 +4,9 @@ Recebe um valor a ser adicionado na lista, e também uma posição onde deverá 
 Caso receba um array irá usa um spread operator para quebrar o array em seus valores
 **************************************************************/
 
+// Posso remover o sistema de quebrar o array, pois pode ser importante adicionar um array ou objeto inteiro
 // MÉTODO
-Array.prototype.addIn = function ( value, index ) {
+Array.prototype.insert = function (index, value) {
     const array = [...this];
     let novoArray = []
     if (typeof value === 'object') {
@@ -26,11 +27,11 @@ Array.prototype.addIn = function ( value, index ) {
   
   // IMPLEMENTAÇÃO
   const arrayOriginal = ["HTML", "CSS", "React"];
-  const novoArray = arrayOriginal.addIn("JavaScript", 2);
+  const novoArray = arrayOriginal.insert(2, "JavaScript");
   console.log("Array original: ", arrayOriginal);
   console.log("Novo array: ", novoArray);
 
   const teste = [0, 1, 2, 7, 8, 9];
-  const novoTeste = teste.addIn([3, 4, 5, 6], 3);
+  const novoTeste = teste.insert(3, [3, 4, 5, 6]);
   console.log("Array original: ", teste);
   console.log("Novo array: ", novoTeste);
