@@ -1,22 +1,21 @@
 require("./prototypes");
 const prompt = require("prompt-sync")({ sigint: true });
 
+const texto =
+`-----------------
+| 1 - Insert    |
+| 2 - Update    |
+| 3 - Remove    |
+| 4 - Erease    |
+| 5 - EreaseAll |
+| 6 - Special   |
+-----------------`;
+
 let controle = true;
 while (controle) {
-  console.log(`
-0 - SAIR
-1 - Insert
-2 - Update
-3 - Remove
-4 - Erease
-5 - EreaseAll
-6 - Special
-`);
-  const valor = prompt("Entre com o valor do Prototype a ser testado: ");
+  console.log(texto);
+  const valor = prompt("Entre com o valor do Prototype a ser testado (0 para SAIR): ");
   switch (valor) {
-    case "0":
-      controle = false;
-      break;
     case "1":
       runInsert();
       break;
@@ -34,6 +33,9 @@ while (controle) {
       break;
     case "6":
       runSpecial();
+      break;
+    default:
+      controle = false;
       break;
   }
 }
