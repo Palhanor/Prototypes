@@ -1,20 +1,23 @@
 require("./prototypes");
 const prompt = require("prompt-sync")({ sigint: true });
 
-const texto =
-`-----------------
+const texto = `-----------------
 | 1 - Insert    |
 | 2 - Update    |
 | 3 - Remove    |
 | 4 - Erease    |
 | 5 - EreaseAll |
 | 6 - Special   |
+| 7 - OrderUp   |
+| 8 - OrderDown |
 -----------------`;
 
 let controle = true;
 while (controle) {
   console.log(texto);
-  const valor = prompt("Entre com o valor do Prototype a ser testado (0 para SAIR): ");
+  const valor = prompt(
+    "Entre com o valor do Prototype a ser testado (0 para SAIR): "
+  );
   switch (valor) {
     case "1":
       runInsert();
@@ -33,6 +36,12 @@ while (controle) {
       break;
     case "6":
       runSpecial();
+      break;
+    case "7":
+      runOrderUp();
+      break;
+    case "8":
+      runOrderDown();
       break;
     default:
       controle = false;
@@ -121,5 +130,116 @@ function runSpecial() {
   console.log("Novo array: ", newArrSpecial3);
 }
 
-// ORDER
-// Em construção...
+// ORDERUP
+function runOrderUp() {
+  const arrayNumericoOriginal = [
+    6.9, 4.2, 0, 11, 6, 4, 8, 10, 2, 6, 4, 22, 20, 9, 3, 9, 50, 66, 1.3,
+  ];
+  console.log(
+    "Array numerico original: ",
+    arrayNumericoOriginal,
+    arrayNumericoOriginal.length
+  );
+
+  const novoArrayNumericoUp = arrayNumericoOriginal.orderUp();
+  console.log(
+    "Novo array numerico crescente: ",
+    novoArrayNumericoUp,
+    novoArrayNumericoUp.length
+  );
+
+  const arrayStringOriginal = [
+    "casa",
+    "flor",
+    "zebra",
+    "amazon",
+    "react",
+    "leão marinho",
+  ];
+  console.log("Array numerico original: ", arrayStringOriginal);
+
+  const novoArrayStringUp = arrayStringOriginal.orderUp();
+  console.log("Novo array string crescente: ", novoArrayStringUp);
+
+  const arrayMistoOriginal = [
+    "pepita",
+    4.6,
+    7,
+    "vaca leiteira",
+    66.6,
+    "dinossauro",
+    "a lenda do tesouro perdido",
+    12,
+  ];
+  console.log("Array numerico original: ", arrayMistoOriginal);
+  const arrayMistoUp = arrayMistoOriginal.orderUp();
+  console.log("Novo array string crescente: ", arrayMistoUp);
+
+  const arrayObjetoOriginal = [
+    { nome: "Lucas", nascimento: { ano: 1996, mes: 05 } },
+    { nome: "Bruno", nascimento: { ano: 1999, mes: 04 } },
+    { nome: "Isadora", nascimento: { ano: 2001, mes: 08 } },
+    { nome: "Ademar", nascimento: { ano: 1976, mes: 12 } },
+  ];
+  console.log("Array numerico original: ", arrayObjetoOriginal);
+  const arrayObjetoUp = arrayObjetoOriginal.orderUp(
+    (valor) => valor.nascimento.ano
+  );
+  console.log("Novo array string crescente: ", arrayObjetoUp);
+}
+
+// ORDERDOWN
+function runOrderDown() {
+  const arrayNumericoOriginal = [
+    6.9, 4.2, 0, 11, 6, 4, 8, 10, 2, 6, 4, 22, 20, 9, 3, 9, 50, 66, 1.3,
+  ];
+  console.log(
+    "Array numerico original: ",
+    arrayNumericoOriginal,
+    arrayNumericoOriginal.length
+  );
+
+  const novoArrayNumericoUp = arrayNumericoOriginal.orderDown();
+  console.log(
+    "Novo array numerico crescente: ",
+    novoArrayNumericoUp,
+    novoArrayNumericoUp.length
+  );
+
+  const arrayStringOriginal = [
+    "casa",
+    "flor",
+    "zebra",
+    "amazon",
+    "react",
+    "leão marinho",
+  ];
+  console.log("Array numerico original: ", arrayStringOriginal);
+
+  const novoArrayStringUp = arrayStringOriginal.orderDown();
+  console.log("Novo array string crescente: ", novoArrayStringUp);
+
+  const arrayMistoOriginal = [
+    "pepita",
+    4.6,
+    7,
+    "vaca leiteira",
+    66.6,
+    "dinossauro",
+    "a lenda do tesouro perdido",
+    12,
+  ];
+  console.log("Array numerico original: ", arrayMistoOriginal);
+  const arrayMistoUp = arrayMistoOriginal.orderDown();
+  console.log("Novo array string crescente: ", arrayMistoUp);
+
+  const arrayObjetoOriginal = [
+    { nome: "Lucas", idade: 26 },
+    { nome: "Bruno", idade: 23 },
+    { nome: "Isadora", idade: 21 },
+    { nome: "Ademar", idade: 46 },
+  ];
+  console.log("Array numerico original: ", arrayObjetoOriginal);
+  const arrayObjetoUp = arrayObjetoOriginal.orderDown((valor) => valor.nome);
+  console.log("Novo array string crescente: ", arrayObjetoUp);
+}

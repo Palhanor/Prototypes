@@ -4,6 +4,8 @@ const remove = require("./remove");
 const erease = require("./erease");
 const ereaseAll = require("./ereaseAll");
 const special = require("./special");
+const orderUp = require("./orderUp");
+const orderDown = require("./orderDown");
 
 exports.prototypes = {
   insert,
@@ -12,4 +14,6 @@ exports.prototypes = {
   erease,
   ereaseAll,
   special,
+  orderUp,
+  orderDown,
 };
