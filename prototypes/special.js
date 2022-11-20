@@ -5,7 +5,7 @@ Caso seja um array simples basta usar o método sem qualquer parâmetro
 **************************************************************/
 
 // MÉTODO
-Array.prototype.special = function (callback) {
+module.exports = Array.prototype.special = function (callback) {
   const novoArray = [];
   if (callback) {
     for (let i = 0; i < this.length; i++) {
@@ -21,32 +21,3 @@ Array.prototype.special = function (callback) {
   }
   return novoArray;
 };
-
-// IMPLEMENTAÇÃO
-const arrayOriginal = [
-  {
-    nome: "Lucas",
-    idade: 25,
-  },
-  {
-    nome: "Bruno",
-    idade: 23,
-  },
-  {
-    nome: "Joselito",
-    idade: 25,
-  },
-];
-const novoArray = arrayOriginal.special(valor => valor.idade);
-console.log("Array original: ", arrayOriginal);
-console.log("Novo array: ", novoArray);
-
-const arr = [1, 2, 3, 2]
-const novoArr = arr.special();
-console.log("Array original: ", arr);
-console.log("Novo array: ", novoArr);
-
-const x = ["Vagner", "Lucas", "Sandra", "Maria", "Lucas"]
-const novoX = x.special();
-console.log("Array original: ", x);
-console.log("Novo array: ", novoX);

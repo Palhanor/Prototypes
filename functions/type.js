@@ -19,6 +19,4 @@ function type(value) {
   else return "object";
 }
 
-// IMPLEMENTAÇÃO
-const valores = [["song", 2], { chave: "valor" }, 6.34, "stringuinha", false, 7];
-for (let i = 0; i < valores.length; i++) console.log(valores[i] + " é: " + type(valores[i]));
+module.exports = type;
