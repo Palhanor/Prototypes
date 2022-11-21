@@ -1,5 +1,5 @@
 // MÉTODO
-Array.prototype.merge = function (chave, chavesSoma) {
+module.exports = Array.prototype.merge = function (chave, chavesSoma) {
   let array = [...this];
   let registro = [];
   for (let i = 0; i < array.length; i++) {
@@ -17,18 +17,13 @@ Array.prototype.merge = function (chave, chavesSoma) {
         };
       }
     } else {
-      registro.push(itemOriginal);
+      let novoObj = { [chave]: itemOriginal[chave] };
+      for (let j = 0; j < chavesSoma.length; j++) {
+        const chaveSoma = chavesSoma[j];
+        novoObj[chaveSoma] = itemOriginal[chaveSoma];
+      }
+      registro.push(novoObj);
     }
   }
   return registro;
 };
-
-const array = [
-  { nome: "Lucas", idade: 26, total: 5 },
-  { nome: "Bruno", idade: 23, total: 2 },
-  { nome: "Lucas", idade: 26, total: 7 },
-  { nome: "Isadora", idade: 21, total: 8 },
-];
-const novoArray = array.merge("nome", ["total"]);
-console.log(array);
-console.log(novoArray)

@@ -1,5 +1,5 @@
-require("./prototypes");
 const prompt = require("prompt-sync")({ sigint: true });
+require("./prototypes");
 
 const texto = `-----------------
 | 1 - Insert    |
@@ -10,6 +10,7 @@ const texto = `-----------------
 | 6 - Special   |
 | 7 - OrderUp   |
 | 8 - OrderDown |
+| 9 - Merge     |
 -----------------`;
 
 let controle = true;
@@ -42,6 +43,9 @@ while (controle) {
       break;
     case "8":
       runOrderDown();
+      break;
+    case "9":
+      runMerge();
       break;
     default:
       controle = false;
@@ -243,4 +247,16 @@ function runOrderDown() {
   console.log("Array numerico original: ", arrayObjetoOriginal);
   const arrayObjetoUp = arrayObjetoOriginal.orderDown((valor) => valor.nome);
   console.log("Novo array string crescente: ", arrayObjetoUp);
+}
+
+function runMerge() {
+  const array = [
+    { produto: "Notebook", preco: 5799, quantidade: 1 },
+    { produto: "iPhone", preco: 3999, quantidade: 2 },
+    { produto: "Monitor", preco: 1499, quantidade: 2 },
+    { produto: "iPhone", preco: 3999, quantidade: 1 },
+  ];
+  const novoArray = array.merge("produto", ["quantidade"]);
+  console.log(array);
+  console.log(novoArray)
 }
