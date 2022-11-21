@@ -8,16 +8,16 @@ module.exports = Array.prototype.orderDown = function (callback) {
   let arrString = [];
   let arrObjectNumber = [];
   let arrObjectString = [];
-  let arrObjectStringControl = [];
-  let arrObjectStringObjectControl = [];
+  let registroStrings = [];
+  let registroObjetos = [];
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] == "number") arrNumber.push(array[i]);
     else if (typeof array[i] == "string") arrString.push(array[i]);
     else if (typeof array[i] == "object") {
       if (typeof callback(array[i]) == "number") arrObjectNumber.push(array[i]);
       else if (typeof callback(array[i]) == "string") {
-        arrObjectStringControl.push(callback(array[i]));
-        arrObjectStringObjectControl.push(array[i]);
+        registroStrings.push(callback(array[i]));
+        registroObjetos.push(array[i]);
       }
     }
   }
@@ -50,14 +50,12 @@ module.exports = Array.prototype.orderDown = function (callback) {
   }
 
   // ORDENA STRINGS DENTRO DE OBJETOS
-  arrObjectStringControl = arrObjectStringControl.sort().reverse();
-  console.log(arrObjectStringControl);
-  console.log(arrObjectStringObjectControl);
-  for (let i = 0; i < arrObjectStringControl.length; i++) {
-    var posicao = arrObjectStringObjectControl.findIndex(
-      (item) => callback(item) == arrObjectStringControl[i]
+  registroStrings = registroStrings.sort().reverse();
+  for (let i = 0; i < registroStrings.length; i++) {
+    const posicao = registroObjetos.findIndex(
+      (item) => callback(item) == registroStrings[i]
     );
-    arrObjectString.push(arrObjectStringObjectControl[posicao]);
+    arrObjectString.push(registroObjetos[posicao]);
   }
 
   return [...arrObjectString, ...arrObjectNumber, ...arrString, ...arrNumber];

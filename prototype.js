@@ -66,18 +66,19 @@ function runInsert() {
 function runUpdate() {
   console.log("======= UPDATE =======");
   const arrUpdate = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; // array original
-  const newArrUpdate = arrUpdate.update(6, 12); // Inserindo o valor 12 na posição 6
+  const newArrUpdate = arrUpdate.update(6, () => 12); // Inserindo o valor 12 na posição 6
   console.log("Original: ", arrUpdate);
   console.log("Modificado: ", newArrUpdate);
   const arrUpdate2 = [
     { nome: "Lucas Palhano", idade: 26 },
     { nome: "Bruno Palhano", idade: 23 },
+    { nome: "Isadora Palhano", idade: 21 },
   ]; // Array de objetos original
   const posicao = arrUpdate2.findIndex((obj) => obj.nome == "Bruno Palhano"); // Pegando a posição do objeto
-  const newArrUpdate2 = arrUpdate2.update(posicao, {
-    ...arrUpdate2[posicao],
+  const newArrUpdate2 = arrUpdate2.update(posicao, (val) => ({
+    ...val,
     idade: 24,
-  }); // Inserindo o mesmo objeto com um valor diferente na posição do mesmo objeto
+  })); // Inserindo o mesmo objeto com um valor diferente na posição do mesmo objeto
   console.log("Original: ", arrUpdate2);
   console.log("Modificado: ", newArrUpdate2);
 }
