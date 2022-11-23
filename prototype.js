@@ -11,6 +11,12 @@ const texto = `-----------------
 | 7 - OrderUp   |
 | 8 - OrderDown |
 | 9 - Merge     |
+| 10 - Factor   |
+| 11 - Func     |
+| 12 - Log      |
+| 13 - Pow      |
+| 14 - Root     |
+| 15 - Sum      |
 -----------------`;
 
 let controle = true;
@@ -46,6 +52,24 @@ while (controle) {
       break;
     case "9":
       runMerge();
+      break;
+    case "10":
+      runFactor();
+      break;
+    case "11":
+      runFunc();
+      break;
+    case "12":
+      runLog();
+      break;
+    case "13":
+      runPow();
+      break;
+    case "14":
+      runRoot();
+      break;
+    case "15":
+      runSum();
       break;
     default:
       controle = false;
@@ -258,5 +282,53 @@ function runMerge() {
   ];
   const novoArray = array.merge("produto", ["quantidade"]);
   console.log(array);
-  console.log(novoArray)
+  console.log(novoArray);
+}
+
+function runFactor() {
+  const numero = 11;
+  console.log(`Fatorial do número ${numero}`);
+  console.log(numero.factor());
+}
+
+function runFunc() {
+  const number = 17;
+  console.log(
+    `Função de primeiro grau considerando ${number} como x, sobre a operação 80*x+10`
+  );
+  console.log(number.func("80*x+10"));
+  console.log(
+    `Função de segundo grau considerando ${number} como x, sobre a operação x**2-2*x+14`
+  );
+  console.log(number.func("x**2-2*x+14"));
+  console.log(
+    `Função exponencial considerando ${number} como x, sobre a operação 1.2**(x-1)-2`
+  );
+  console.log(number.func("1.2**(x-1)-2"));
+  // console.log(`Função de terceiro grau considerando ${number} como x, sobra a operação 2*x**3 – 3*x**2 + 2*x + 1`)
+  // console.log(number.func("2*x**3–3*x**2+2*x+1"))
+}
+
+function runLog() {
+  const numero = 13;
+  console.log(`Logaritmo de ${numero} na base 7`);
+  console.log(numero.log(7));
+}
+
+function runPow() {
+  const numero = 42;
+  console.log(`${numero} elevado a 4 potência`);
+  console.log(numero.pow(4));
+}
+
+function runRoot() {
+  const numero = 24;
+  console.log(`Raíz cubica de ${numero}`);
+  console.log(numero.root(3));
+}
+
+function runSum() {
+  const numero = 12;
+  console.log(`Somatório de ${numero} até 100 com a operação n*3+2`);
+  console.log(numero.sum(100, "n*3+2"));
 }

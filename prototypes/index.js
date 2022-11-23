@@ -1,12 +1,18 @@
-const insert = require("./insert");
-const update = require("./update");
-const remove = require("./remove");
-const erease = require("./erease");
-const ereaseAll = require("./ereaseAll");
-const special = require("./special");
-const orderUp = require("./orderUp");
-const orderDown = require("./orderDown");
-const merge = require("./merge");
+const insert = require("./Array/insert");
+const update = require("./Array/update");
+const remove = require("./Array/remove");
+const erease = require("./Array/erease");
+const ereaseAll = require("./Array/ereaseAll");
+const special = require("./Array/special");
+const orderUp = require("./Array/orderUp");
+const orderDown = require("./Array/orderDown");
+const merge = require("./Array/merge");
+const factor = require("./Number/factor");
+const func = require("./Number/func");
+const log = require("./Number/log");
+const pow = require("./Number/pow");
+const root = require("./Number/root");
+const sum = require("./Number/sum");
 
 exports.prototypes = {
   insert,
@@ -18,4 +24,10 @@ exports.prototypes = {
   orderUp,
   orderDown,
   merge,
+  factor,
+  func,
+  log,
+  pow,
+  root,
+  sum
 };

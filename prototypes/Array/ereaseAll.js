@@ -3,11 +3,12 @@ Retorna um novo array contendo a subtraçaõ do valor ue se encontrava na posiç
 Recebe apenas o valor referente à posição onde deverá ser realizada a remoção do valor
 **************************************************************/
 
+// Permitir passar um callback para indicar um valor de um objeto
 // MÉTODO
-module.exports = Array.prototype.erease = function (value) {
+module.exports = Array.prototype.ereaseAll = function (value) {
   let array = [...this];
-  const indiceValue = array.indexOf(value);
-  if (indiceValue !== -1) {
+  while (array.indexOf(value) !== -1) {
+    const indiceValue = array.indexOf(value);
     array = [
       ...array.slice(0, indiceValue),
       ...array.slice(indiceValue + 1, array.length),

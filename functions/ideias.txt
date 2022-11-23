@@ -1,0 +1,7 @@
+Criar funcoes de geometria (volume, area, triangulo, quadrado, seno, cosseno, tangente...)
+Calcular fatoracao
+Calcular MMC - LCM
+Calcular MDC - GCD
+
+Ajeitar o sistema de equações lineares
+Conserguir exportar e importar as funções
